@@ -1,3 +1,10 @@
+import { render, screen } from '@testing-library/react'
+import App from './App'
+
 test('to be truethy', () => {
-    expect(true).toBeTruthy()
+    render(<App />)
+
+    expect(
+        screen.getByText('Vite + React')
+    ).toBeVisible()
 })

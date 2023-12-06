@@ -1,5 +1,5 @@
-//Objetivo: não precisar importar {test, expect, ...rest}
 import { test, expect, describe } from "vitest";
+import "@testing-library/jest-dom/vitest";
 
 globalThis.test = test;
 globalThis.expect = expect;

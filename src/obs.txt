@@ -1,0 +1,3 @@
+setupTest: para não ter que importar a todo momento {test, expect ...} do vitest
+jsdom: cria um ambiente dom para tertar a nossa aplicação
+@testing-library/jest-dom: permite a ultilização de novos metchs no expect
