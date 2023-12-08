@@ -30,7 +30,7 @@ describe("FilterComponent", () => {
     ).toHaveLength(3)
 
     expect(
-      screen.queryByText('Olá, John Smith')
+      screen.queryByRole('dialog')
     ).not.toBeInTheDocument()
 
   });
@@ -53,7 +53,7 @@ describe("FilterComponent", () => {
     )
 
     expect(
-      await screen.findByText('Olá, John Smith')
+      await screen.findByRole('dialog')
     ).toBeVisible()
 
   })
