@@ -8,10 +8,15 @@ type Props = {
 const FilterComponent = ({ list }: Props) => {
 
     const [filter, setFilter] = useState('')
+    const [name, setName] = useState('')
 
     function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
         const { value } = event.currentTarget
         setFilter(value)
+    }
+
+    function handleClick(name: string) {
+        setName(name)
     }
 
     return (
@@ -21,8 +26,10 @@ const FilterComponent = ({ list }: Props) => {
             <ul>
                 {list
                     .filter(item => item.name.toLowerCase().includes(filter.toLowerCase()))
-                    .map(item => (<li key={item.index}>{item.name}</li>))}
+                    .map(item => (<li onClick={() => handleClick(item.name)} key={item.index}>{item.name}</li>))}
             </ul>
+            {Boolean(name) && <div role="dialog">Olá, John Smith</div>}
+
         </>
     )
 }

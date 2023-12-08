@@ -28,9 +28,14 @@ describe("FilterComponent", () => {
     expect(
       await screen.findAllByRole('listitem')
     ).toHaveLength(3)
+
+    expect(
+      screen.queryByText('Olá, John Smith')
+    ).not.toBeInTheDocument()
+
   });
 
-  test("User search for 'Muller', then show only one user found", async () => {
+  test("User search for 'Doe', then show only one user found", async () => {
     render(<FilterComponent list={users} />);
 
     await userEvent.type(
@@ -39,5 +44,17 @@ describe("FilterComponent", () => {
     expect(
       await screen.findAllByRole('listitem')
     ).toHaveLength(2)
+  })
+
+  test("When clicked in a item of tha list, then show a hellow dialog", async () => {
+    render(<FilterComponent list={users} />);
+    await userEvent.click(
+      await screen.findByText('John Smith')
+    )
+
+    expect(
+      await screen.findByText('Olá, John Smith')
+    ).toBeVisible()
+
   })
 });

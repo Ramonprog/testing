@@ -1,3 +1,10 @@
 setupTest: para não ter que importar a todo momento {test, expect ...} do vitest
 jsdom: cria um ambiente dom para tertar a nossa aplicação
 @testing-library/jest-dom: permite a ultilização de novos metchs no expect
+
+diferença entre queryByText e findByText
+FindByText: espera um promisse, e caso não receba da um erro e quebra o teste
+QueryByText: espera um HTML | null, mais usado para quando eu espero não ver o elemento em tela
+
+toBeInTheDocument() => verifica se o elemento existe no document, sendo util para modais, verificar se o modal abriu por exemplo
+toBeVisible() => espera mostrar um item na tela
